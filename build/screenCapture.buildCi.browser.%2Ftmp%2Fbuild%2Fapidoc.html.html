@@ -1,0 +1,1507 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/nodeca/fs-tools">fs-tools (v0.3.0)</a>
+</h1>
+<h4>fs helper utilities (walk, copy, mkdir -p)</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-tools">module fs-tools</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.copy">
+            function <span class="apidocSignatureSpan">fs-tools.</span>copy
+            <span class="apidocSignatureSpan">(src, dst, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.findSorted">
+            function <span class="apidocSignatureSpan">fs-tools.</span>findSorted
+            <span class="apidocSignatureSpan">(pathname, pattern, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.mkdir">
+            function <span class="apidocSignatureSpan">fs-tools.</span>mkdir
+            <span class="apidocSignatureSpan">(path, mode, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.mkdirSync">
+            function <span class="apidocSignatureSpan">fs-tools.</span>mkdirSync
+            <span class="apidocSignatureSpan">(path, mode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.move">
+            function <span class="apidocSignatureSpan">fs-tools.</span>move
+            <span class="apidocSignatureSpan">(source, destination, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.remove">
+            function <span class="apidocSignatureSpan">fs-tools.</span>remove
+            <span class="apidocSignatureSpan">(path, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.removeSync">
+            function <span class="apidocSignatureSpan">fs-tools.</span>removeSync
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.tmpdir">
+            function <span class="apidocSignatureSpan">fs-tools.</span>tmpdir
+            <span class="apidocSignatureSpan">(template)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.walk">
+            function <span class="apidocSignatureSpan">fs-tools.</span>walk
+            <span class="apidocSignatureSpan">(path, pattern, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.walkSync">
+            function <span class="apidocSignatureSpan">fs-tools.</span>walkSync
+            <span class="apidocSignatureSpan">(path, pattern, iterator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fs-tools.</span>fs_tools</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.fs-tools.fs_tools">module fs-tools.fs_tools</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.copy">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>copy
+            <span class="apidocSignatureSpan">(src, dst, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.findSorted">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>findSorted
+            <span class="apidocSignatureSpan">(pathname, pattern, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.mkdir">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>mkdir
+            <span class="apidocSignatureSpan">(path, mode, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.mkdirSync">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>mkdirSync
+            <span class="apidocSignatureSpan">(path, mode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.move">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>move
+            <span class="apidocSignatureSpan">(source, destination, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.remove">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>remove
+            <span class="apidocSignatureSpan">(path, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.removeSync">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>removeSync
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.tmpdir">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>tmpdir
+            <span class="apidocSignatureSpan">(template)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.walk">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>walk
+            <span class="apidocSignatureSpan">(path, pattern, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.fs-tools.fs_tools.walkSync">
+            function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>walkSync
+            <span class="apidocSignatureSpan">(path, pattern, iterator)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-tools" id="apidoc.module.fs-tools">module fs-tools</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.copy" id="apidoc.element.fs-tools.copy">
+        function <span class="apidocSignatureSpan">fs-tools.</span>copy
+        <span class="apidocSignatureSpan">(src, dst, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copy = function (src, dst, callback) {
+  src = path_normalize(src);
+  dst = path_normalize(dst);
+
+  // sad but true - people make mistakes...
+  if (src === dst) {
+    callback(null);
+    return;
+  }
+
+  fs.lstat(src, function (err, stats) {
+    if (err) {
+      callback(err);
+      return;
+    }
+
+    fstools.mkdir(dirname(dst), function (err) {
+      var chmod, done;
+
+      if (err) {
+        callback(err);
+        return;
+      }
+
+      // chmod dst
+      chmod = async.apply(fs.chmod, dst, stats.mode.toString(8).slice(-4));
+
+      // reject async.series' results
+      done = function (err/*, results */) { callback(err); };
+
+      // *** file
+      if (stats.isFile()) {
+        async.series([async.apply(copy_file, src, dst), chmod], done);
+        return;
+      }
+
+      // *** symbolic link
+      if (stats.isSymbolicLink()) {
+        async.waterfall([
+          function (next) {
+            fs.exists(dst, function (exists) {
+              if (exists) {
+                fstools.remove(dst, next);
+                return;
+              }
+
+              next();
+            });
+          },
+          async.apply(fs.readlink, src),
+          function (linkpath, next) {
+            fs.symlink(linkpath, dst, next);
+          },
+          chmod
+        ], done);
+        return;
+      }
+
+      // *** directory
+      if (stats.isDirectory()) {
+        async.series([
+          function (next) {
+            fs.mkdir(dst, '0755', function (err) {
+              if (err &amp;&amp; 'EEXIST' === err.code) {
+                next(null);
+                return;
+              }
+
+              next(err);
+            });
+          },
+          async.apply(walk_flat, src, function (path, next) {
+            fstools.copy(path, dst + path.replace(src, ''), next);
+          }),
+          chmod
+        ], done);
+        return;
+      }
+
+      // *** unsupported src
+      callback(new Error('Unsupported type of the source'));
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     throw err;
+   }
+ }
+};
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">copy</span>(src, dst, callback) -&gt; void
+*  - src (String): Source file
+*  - dst (String): Destination file
+*  - callback (Function): Fired after path has been copied
+*
+*  Copies `src` to `dst`, creates directory for given `dst` with
+*  [[FsTools.mkdir]] if needed. Fires `callback(err)` upon
+*  completion.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.findSorted" id="apidoc.element.fs-tools.findSorted">
+        function <span class="apidocSignatureSpan">fs-tools.</span>findSorted
+        <span class="apidocSignatureSpan">(pathname, pattern, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function findSorted(pathname, pattern, callback) {
+  var files = [];
+
+  if (!callback) {
+    callback = pattern;
+    pattern  = null;
+  }
+
+  fstools.walk(pathname, pattern, function (file, stats, next) {
+    files.push(file);
+    next();
+  }, function (err) {
+    callback(err, files.sort());
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  throw new Error('Failed to generate uniq tmpdir with template: ' + template);
+};
+
+
+/**
+ *  FsTools.<span class="apidocCodeKeywordSpan">findSorted</span>(pathname, pattern, callback(err, files)) -&gt; Void
+ *  FsTools.findSorted(pathname, callback(err, files)) -&gt; Void
+ *
+ *  Finds all files matching `pattern` withing `pathname` (including sub-dirs),
+ *  and passes list of found files (sorted alphabethically) to the `callback`.
+ *  If no `pattern` was given - will collect all found files.
+ **/
+fstools.findSorted = function findSorted(pathname, pattern, callback) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.mkdir" id="apidoc.element.fs-tools.mkdir">
+        function <span class="apidocSignatureSpan">fs-tools.</span>mkdir
+        <span class="apidocSignatureSpan">(path, mode, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdir = function (path, mode, callback) {
+  if (undefined === callback &amp;&amp; _.isFunction(mode)) {
+    callback = mode;
+    mode = '0755';
+  }
+
+  path = path_normalize(path);
+  fs.exists(path, function (exists) {
+    var parent;
+
+    if (exists) {
+      callback(null);
+      return;
+    }
+
+    parent = dirname(path);
+    fstools.mkdir(parent, mode, function (err) {
+      if (err) {
+        callback(err);
+        return;
+      }
+
+      fs.mkdir(path, mode, function (err) {
+        // EEXIST is not error in our case
+        // but a race condition :((
+        if (err &amp;&amp; 'EEXIST' === err.code) {
+          callback(null);
+          return;
+        }
+
+        // fallback to default behavior
+        callback(err);
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ }
+
+ throw nested_err;
+};
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">mkdir</span>(path, mode, callback) -&gt; void
+*  FsTools.mkdir(path, callback) -&gt; void
+*  - path (String): Path to create
+*  - mode (String|Number): Permission mode of new directory. See stdlib
+*    fs.mkdir for details. Default: '0755'.
+*  - callback (Function): Fired after path was created
+*
+*  Creates given path, creating parents recursively if needed.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.mkdirSync" id="apidoc.element.fs-tools.mkdirSync">
+        function <span class="apidocSignatureSpan">fs-tools.</span>mkdirSync
+        <span class="apidocSignatureSpan">(path, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdirSync = function (path, mode) {
+  mode = mode || '0755';
+  path = path_normalize(path);
+
+  if (fs.existsSync(path)) {
+    return;
+  }
+
+  fstools.mkdirSync(dirname(path), mode);
+
+  try {
+    fs.mkdirSync(path, mode);
+  } catch (err) {
+    if ('EEXIST' !== err.code) {
+      throw err;
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    });
+  });
+});
+};
+
+
+/**
+ *  FsTools.<span class="apidocCodeKeywordSpan">mkdirSync</span>(path[, mode = '0755']) -&gt; void
+ *
+ *  Sync version of [[FsTools.mkdir]].
+ **/
+fstools.mkdirSync = function (path, mode) {
+mode = mode || '0755';
+path = path_normalize(path);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.move" id="apidoc.element.fs-tools.move">
+        function <span class="apidocSignatureSpan">fs-tools.</span>move
+        <span class="apidocSignatureSpan">(source, destination, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function move(source, destination, callback) {
+  fs.rename(source, destination, function (err) {
+    if (!err) {
+      callback();
+      return;
+    }
+
+    // TODO: Needs testing coverage
+
+    // normally err.code can be:
+    // - EXDEV (different partitions/devices)
+    // - ENOTEMPTY (source and destination are not-empty dirs)
+    // - EISDIR (destionation is dir, source is file)
+
+    async.series([
+      async.apply(fstools.copy, source, destination),
+      async.apply(fstools.remove, source)
+    ], function (err/*, results*/) {
+      callback(err);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    callback(new Error('Unsupported type of the source'));
+  });
+});
+};
+
+
+/**
+ *  FsTools.<span class="apidocCodeKeywordSpan">move</span>(source, destination, callback) -&gt; Void
+ *  - source (String): Source filename
+ *  - destination (String): Destination filename
+ *
+ *  Moves file from `source` to `destination`.
+ **/
+fstools.move = function move(source, destination, callback) {
+fs.rename(source, destination, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.remove" id="apidoc.element.fs-tools.remove">
+        function <span class="apidocSignatureSpan">fs-tools.</span>remove
+        <span class="apidocSignatureSpan">(path, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (path, callback) {
+  path = path_normalize(path);
+  fs.lstat(path, function (err, stats) {
+    if (err) {
+      // file/dir not exists - no need to do anything
+      if ('ENOENT' === err.code) {
+        callback(null);
+        return;
+      }
+
+      // unknown error - can't continue
+      callback(err);
+      return;
+    }
+
+    if (!stats.isDirectory()) {
+      fs.unlink(path, callback);
+      return;
+    }
+
+    async.series([
+      async.apply(walk_flat, path, fstools.remove),
+      async.apply(fs.rmdir, path)
+    ], function (err/*, results */) {
+      callback(err);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   iterator(path, stat);
+   return;
+ }
+};
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">remove</span>(path, callback) -&gt; void
+*  - path (String): Path to remove
+*  - callback (Function): Fired after path was removed
+*
+*  Removes given `path`. If it was a directory will remove it recursively,
+*  similar to UNIX' `rm -rf &lt;path&gt;`. After all will fire `callback(err)` with
+*  an error if there were any.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.removeSync" id="apidoc.element.fs-tools.removeSync">
+        function <span class="apidocSignatureSpan">fs-tools.</span>removeSync
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeSync(path) {
+  var nested_err, lstat;
+
+  path  = path_normalize(path);
+  lstat = fs.lstatSync(path);
+
+  if (!lstat.isDirectory()) {
+    fs.unlinkSync(path);
+    return;
+  }
+
+  fs.readdirSync(path).forEach(function (file) {
+    try {
+      fstools.removeSync(path_join(path, file));
+    } catch (err) {
+      nested_err = err;
+    }
+  });
+
+  if (!nested_err) {
+    fs.rmdirSync(path);
+    return;
+  }
+
+  throw nested_err;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   });
+ });
+};
+
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">removeSync</span>(path) -&gt; void
+*  - path (String): Path to remove
+*
+*  Removes given `path`. If it was a directory will remove it recursively,
+*  similar to UNIX' `rm -rf &lt;path&gt;`.
+*
+*  If given `path` was file - will proxy call to `fs.unlinkSync`.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.tmpdir" id="apidoc.element.fs-tools.tmpdir">
+        function <span class="apidocSignatureSpan">fs-tools.</span>tmpdir
+        <span class="apidocSignatureSpan">(template)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function tmpdir(template) {
+
+  // Default location - in system tmp dir
+  var tmp_default = path_join(
+    // Just fallback to '/tmp' for node v0.6. Dirty, but better than nothing :)
+    os.tmpDir ? os.tmpDir() : '/tmp',
+    'fstools.XXXXXX'
+  );
+
+  var match = (template || tmp_default).match(/^(.*?)(X{3,})(.*?)$/),
+      attempts, length, random, pathname;
+
+  if (!match) {
+    throw new Error('Invalid tmpdir template: ' + template);
+  }
+
+  attempts = 5;
+  length   = match[2].length;
+
+  // Do not try more than attempts of times
+  while (attempts--) {
+    random   = crypto.randomBytes(Math.ceil(length / 2)).toString('hex').substring(0, length);
+    pathname = (match[1] || '') + random + (match[3] || '');
+
+    if (!fs.existsSync(pathname)) {
+      // Generated pathname is uniq - return it
+      return pathname;
+    }
+  }
+
+  throw new Error('Failed to generate uniq tmpdir with template: ' + template);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     callback(err);
+   });
+ });
+};
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">tmpdir</span>([template = '/tmp/fstools.XXXXXX']) -&gt; String
+*  - template (String): Temporary directory pattern.
+*
+*  Returns non-existing (at the moment of request) temporary directory path.
+*  `template` must contain a substring with at least 3 consecutive `X`, that
+*  will be replaced with pseudo-random string of the same length.
+*
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.walk" id="apidoc.element.fs-tools.walk">
+        function <span class="apidocSignatureSpan">fs-tools.</span>walk
+        <span class="apidocSignatureSpan">(path, pattern, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">walk = function (path, pattern, iterator, callback) {
+  var match;
+
+  if (!callback) {
+    pattern  = null;
+    iterator = arguments[1];
+    callback = arguments[2];
+  }
+
+  if (!pattern) {
+    match = function () { return true; };
+  } else if (_.isFunction(pattern) &amp;&amp; !_.isRegExp(pattern)) {
+    match = pattern;
+  } else {
+    pattern = new RegExp(pattern);
+    match = function (path) { return pattern.test(path); };
+  }
+
+  path = path_normalize(path);
+  fs.lstat(path, function (err, stats) {
+    if (err) {
+      callback('ENOENT' === err.code ? null : err);
+      return;
+    }
+
+    if (stats.isDirectory()) {
+      walk_deep(path, match, iterator, callback);
+      return;
+    }
+
+    if (match(path)) {
+      iterator(path, stats, callback);
+      return;
+    }
+
+    callback();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+// PUBLIC API
+////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">walk</span>(path, pattern, iterator, callback) -&gt; void
+*  FsTools.walk(path, iterator, callback) -&gt; void
+*
+*  Walks throught all files withing `path` (including sub-dirs) and calls
+*  `iterator` on each found file (or block device etc.) matching `pattern`.
+*  If no `pattern` was given - will fire call `iterator` for every single
+*  path found. After all iterations will call `callback` (if it was specified)
+*  with passing `error` as first arguemtn if there was an error.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.walkSync" id="apidoc.element.fs-tools.walkSync">
+        function <span class="apidocSignatureSpan">fs-tools.</span>walkSync
+        <span class="apidocSignatureSpan">(path, pattern, iterator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">walkSync = function (path, pattern, iterator) {
+  var match, stat;
+
+  if (!iterator) {
+    pattern  = null;
+    iterator = arguments[1];
+  }
+
+  if (!pattern) {
+    match = function () { return true; };
+  } else if (_.isFunction(pattern) &amp;&amp; !_.isRegExp(pattern)) {
+    match = pattern;
+  } else {
+    pattern = new RegExp(pattern);
+    match = function (path) { return pattern.test(path); };
+  }
+
+  path = path_normalize(path);
+
+  try {
+    stat = fs.lstatSync(path);
+  } catch (err) {
+    if ('ENOENT' === err.code) {
+      return;
+    }
+
+    // rethrow
+    throw err;
+  }
+
+  if (stat.isDirectory()) {
+    fs.readdirSync(path).forEach(function (file) {
+      fstools.walkSync(path_join(path, file), match, iterator);
+    });
+    return;
+  }
+
+  if (match(path)) {
+    iterator(path, stat);
+    return;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  callback();
+});
+};
+
+
+
+/**
+ *  FsTools.<span class="apidocCodeKeywordSpan">walkSync</span>(path, pattern, iterator) -&gt; void
+ *  FsTools.walkSync(path, iterator) -&gt; void
+ *
+ *  Synchronous version of [[FsTools.walk]].
+ **/
+fstools.walkSync = function (path, pattern, iterator) {
+var match, stat;
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.fs-tools.fs_tools" id="apidoc.module.fs-tools.fs_tools">module fs-tools.fs_tools</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.copy" id="apidoc.element.fs-tools.fs_tools.copy">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>copy
+        <span class="apidocSignatureSpan">(src, dst, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copy = function (src, dst, callback) {
+  src = path_normalize(src);
+  dst = path_normalize(dst);
+
+  // sad but true - people make mistakes...
+  if (src === dst) {
+    callback(null);
+    return;
+  }
+
+  fs.lstat(src, function (err, stats) {
+    if (err) {
+      callback(err);
+      return;
+    }
+
+    fstools.mkdir(dirname(dst), function (err) {
+      var chmod, done;
+
+      if (err) {
+        callback(err);
+        return;
+      }
+
+      // chmod dst
+      chmod = async.apply(fs.chmod, dst, stats.mode.toString(8).slice(-4));
+
+      // reject async.series' results
+      done = function (err/*, results */) { callback(err); };
+
+      // *** file
+      if (stats.isFile()) {
+        async.series([async.apply(copy_file, src, dst), chmod], done);
+        return;
+      }
+
+      // *** symbolic link
+      if (stats.isSymbolicLink()) {
+        async.waterfall([
+          function (next) {
+            fs.exists(dst, function (exists) {
+              if (exists) {
+                fstools.remove(dst, next);
+                return;
+              }
+
+              next();
+            });
+          },
+          async.apply(fs.readlink, src),
+          function (linkpath, next) {
+            fs.symlink(linkpath, dst, next);
+          },
+          chmod
+        ], done);
+        return;
+      }
+
+      // *** directory
+      if (stats.isDirectory()) {
+        async.series([
+          function (next) {
+            fs.mkdir(dst, '0755', function (err) {
+              if (err &amp;&amp; 'EEXIST' === err.code) {
+                next(null);
+                return;
+              }
+
+              next(err);
+            });
+          },
+          async.apply(walk_flat, src, function (path, next) {
+            fstools.copy(path, dst + path.replace(src, ''), next);
+          }),
+          chmod
+        ], done);
+        return;
+      }
+
+      // *** unsupported src
+      callback(new Error('Unsupported type of the source'));
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     throw err;
+   }
+ }
+};
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">copy</span>(src, dst, callback) -&gt; void
+*  - src (String): Source file
+*  - dst (String): Destination file
+*  - callback (Function): Fired after path has been copied
+*
+*  Copies `src` to `dst`, creates directory for given `dst` with
+*  [[FsTools.mkdir]] if needed. Fires `callback(err)` upon
+*  completion.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.findSorted" id="apidoc.element.fs-tools.fs_tools.findSorted">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>findSorted
+        <span class="apidocSignatureSpan">(pathname, pattern, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function findSorted(pathname, pattern, callback) {
+  var files = [];
+
+  if (!callback) {
+    callback = pattern;
+    pattern  = null;
+  }
+
+  fstools.walk(pathname, pattern, function (file, stats, next) {
+    files.push(file);
+    next();
+  }, function (err) {
+    callback(err, files.sort());
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  throw new Error('Failed to generate uniq tmpdir with template: ' + template);
+};
+
+
+/**
+ *  FsTools.<span class="apidocCodeKeywordSpan">findSorted</span>(pathname, pattern, callback(err, files)) -&gt; Void
+ *  FsTools.findSorted(pathname, callback(err, files)) -&gt; Void
+ *
+ *  Finds all files matching `pattern` withing `pathname` (including sub-dirs),
+ *  and passes list of found files (sorted alphabethically) to the `callback`.
+ *  If no `pattern` was given - will collect all found files.
+ **/
+fstools.findSorted = function findSorted(pathname, pattern, callback) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.mkdir" id="apidoc.element.fs-tools.fs_tools.mkdir">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>mkdir
+        <span class="apidocSignatureSpan">(path, mode, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdir = function (path, mode, callback) {
+  if (undefined === callback &amp;&amp; _.isFunction(mode)) {
+    callback = mode;
+    mode = '0755';
+  }
+
+  path = path_normalize(path);
+  fs.exists(path, function (exists) {
+    var parent;
+
+    if (exists) {
+      callback(null);
+      return;
+    }
+
+    parent = dirname(path);
+    fstools.mkdir(parent, mode, function (err) {
+      if (err) {
+        callback(err);
+        return;
+      }
+
+      fs.mkdir(path, mode, function (err) {
+        // EEXIST is not error in our case
+        // but a race condition :((
+        if (err &amp;&amp; 'EEXIST' === err.code) {
+          callback(null);
+          return;
+        }
+
+        // fallback to default behavior
+        callback(err);
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ }
+
+ throw nested_err;
+};
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">mkdir</span>(path, mode, callback) -&gt; void
+*  FsTools.mkdir(path, callback) -&gt; void
+*  - path (String): Path to create
+*  - mode (String|Number): Permission mode of new directory. See stdlib
+*    fs.mkdir for details. Default: '0755'.
+*  - callback (Function): Fired after path was created
+*
+*  Creates given path, creating parents recursively if needed.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.mkdirSync" id="apidoc.element.fs-tools.fs_tools.mkdirSync">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>mkdirSync
+        <span class="apidocSignatureSpan">(path, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdirSync = function (path, mode) {
+  mode = mode || '0755';
+  path = path_normalize(path);
+
+  if (fs.existsSync(path)) {
+    return;
+  }
+
+  fstools.mkdirSync(dirname(path), mode);
+
+  try {
+    fs.mkdirSync(path, mode);
+  } catch (err) {
+    if ('EEXIST' !== err.code) {
+      throw err;
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    });
+  });
+});
+};
+
+
+/**
+ *  FsTools.<span class="apidocCodeKeywordSpan">mkdirSync</span>(path[, mode = '0755']) -&gt; void
+ *
+ *  Sync version of [[FsTools.mkdir]].
+ **/
+fstools.mkdirSync = function (path, mode) {
+mode = mode || '0755';
+path = path_normalize(path);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.move" id="apidoc.element.fs-tools.fs_tools.move">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>move
+        <span class="apidocSignatureSpan">(source, destination, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function move(source, destination, callback) {
+  fs.rename(source, destination, function (err) {
+    if (!err) {
+      callback();
+      return;
+    }
+
+    // TODO: Needs testing coverage
+
+    // normally err.code can be:
+    // - EXDEV (different partitions/devices)
+    // - ENOTEMPTY (source and destination are not-empty dirs)
+    // - EISDIR (destionation is dir, source is file)
+
+    async.series([
+      async.apply(fstools.copy, source, destination),
+      async.apply(fstools.remove, source)
+    ], function (err/*, results*/) {
+      callback(err);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    callback(new Error('Unsupported type of the source'));
+  });
+});
+};
+
+
+/**
+ *  FsTools.<span class="apidocCodeKeywordSpan">move</span>(source, destination, callback) -&gt; Void
+ *  - source (String): Source filename
+ *  - destination (String): Destination filename
+ *
+ *  Moves file from `source` to `destination`.
+ **/
+fstools.move = function move(source, destination, callback) {
+fs.rename(source, destination, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.remove" id="apidoc.element.fs-tools.fs_tools.remove">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>remove
+        <span class="apidocSignatureSpan">(path, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (path, callback) {
+  path = path_normalize(path);
+  fs.lstat(path, function (err, stats) {
+    if (err) {
+      // file/dir not exists - no need to do anything
+      if ('ENOENT' === err.code) {
+        callback(null);
+        return;
+      }
+
+      // unknown error - can't continue
+      callback(err);
+      return;
+    }
+
+    if (!stats.isDirectory()) {
+      fs.unlink(path, callback);
+      return;
+    }
+
+    async.series([
+      async.apply(walk_flat, path, fstools.remove),
+      async.apply(fs.rmdir, path)
+    ], function (err/*, results */) {
+      callback(err);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   iterator(path, stat);
+   return;
+ }
+};
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">remove</span>(path, callback) -&gt; void
+*  - path (String): Path to remove
+*  - callback (Function): Fired after path was removed
+*
+*  Removes given `path`. If it was a directory will remove it recursively,
+*  similar to UNIX' `rm -rf &lt;path&gt;`. After all will fire `callback(err)` with
+*  an error if there were any.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.removeSync" id="apidoc.element.fs-tools.fs_tools.removeSync">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>removeSync
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeSync(path) {
+  var nested_err, lstat;
+
+  path  = path_normalize(path);
+  lstat = fs.lstatSync(path);
+
+  if (!lstat.isDirectory()) {
+    fs.unlinkSync(path);
+    return;
+  }
+
+  fs.readdirSync(path).forEach(function (file) {
+    try {
+      fstools.removeSync(path_join(path, file));
+    } catch (err) {
+      nested_err = err;
+    }
+  });
+
+  if (!nested_err) {
+    fs.rmdirSync(path);
+    return;
+  }
+
+  throw nested_err;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   });
+ });
+};
+
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">removeSync</span>(path) -&gt; void
+*  - path (String): Path to remove
+*
+*  Removes given `path`. If it was a directory will remove it recursively,
+*  similar to UNIX' `rm -rf &lt;path&gt;`.
+*
+*  If given `path` was file - will proxy call to `fs.unlinkSync`.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.tmpdir" id="apidoc.element.fs-tools.fs_tools.tmpdir">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>tmpdir
+        <span class="apidocSignatureSpan">(template)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function tmpdir(template) {
+
+  // Default location - in system tmp dir
+  var tmp_default = path_join(
+    // Just fallback to '/tmp' for node v0.6. Dirty, but better than nothing :)
+    os.tmpDir ? os.tmpDir() : '/tmp',
+    'fstools.XXXXXX'
+  );
+
+  var match = (template || tmp_default).match(/^(.*?)(X{3,})(.*?)$/),
+      attempts, length, random, pathname;
+
+  if (!match) {
+    throw new Error('Invalid tmpdir template: ' + template);
+  }
+
+  attempts = 5;
+  length   = match[2].length;
+
+  // Do not try more than attempts of times
+  while (attempts--) {
+    random   = crypto.randomBytes(Math.ceil(length / 2)).toString('hex').substring(0, length);
+    pathname = (match[1] || '') + random + (match[3] || '');
+
+    if (!fs.existsSync(pathname)) {
+      // Generated pathname is uniq - return it
+      return pathname;
+    }
+  }
+
+  throw new Error('Failed to generate uniq tmpdir with template: ' + template);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     callback(err);
+   });
+ });
+};
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">tmpdir</span>([template = '/tmp/fstools.XXXXXX']) -&gt; String
+*  - template (String): Temporary directory pattern.
+*
+*  Returns non-existing (at the moment of request) temporary directory path.
+*  `template` must contain a substring with at least 3 consecutive `X`, that
+*  will be replaced with pseudo-random string of the same length.
+*
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.walk" id="apidoc.element.fs-tools.fs_tools.walk">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>walk
+        <span class="apidocSignatureSpan">(path, pattern, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">walk = function (path, pattern, iterator, callback) {
+  var match;
+
+  if (!callback) {
+    pattern  = null;
+    iterator = arguments[1];
+    callback = arguments[2];
+  }
+
+  if (!pattern) {
+    match = function () { return true; };
+  } else if (_.isFunction(pattern) &amp;&amp; !_.isRegExp(pattern)) {
+    match = pattern;
+  } else {
+    pattern = new RegExp(pattern);
+    match = function (path) { return pattern.test(path); };
+  }
+
+  path = path_normalize(path);
+  fs.lstat(path, function (err, stats) {
+    if (err) {
+      callback('ENOENT' === err.code ? null : err);
+      return;
+    }
+
+    if (stats.isDirectory()) {
+      walk_deep(path, match, iterator, callback);
+      return;
+    }
+
+    if (match(path)) {
+      iterator(path, stats, callback);
+      return;
+    }
+
+    callback();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+// PUBLIC API
+////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+*  FsTools.<span class="apidocCodeKeywordSpan">walk</span>(path, pattern, iterator, callback) -&gt; void
+*  FsTools.walk(path, iterator, callback) -&gt; void
+*
+*  Walks throught all files withing `path` (including sub-dirs) and calls
+*  `iterator` on each found file (or block device etc.) matching `pattern`.
+*  If no `pattern` was given - will fire call `iterator` for every single
+*  path found. After all iterations will call `callback` (if it was specified)
+*  with passing `error` as first arguemtn if there was an error.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.fs-tools.fs_tools.walkSync" id="apidoc.element.fs-tools.fs_tools.walkSync">
+        function <span class="apidocSignatureSpan">fs-tools.fs_tools.</span>walkSync
+        <span class="apidocSignatureSpan">(path, pattern, iterator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">walkSync = function (path, pattern, iterator) {
+  var match, stat;
+
+  if (!iterator) {
+    pattern  = null;
+    iterator = arguments[1];
+  }
+
+  if (!pattern) {
+    match = function () { return true; };
+  } else if (_.isFunction(pattern) &amp;&amp; !_.isRegExp(pattern)) {
+    match = pattern;
+  } else {
+    pattern = new RegExp(pattern);
+    match = function (path) { return pattern.test(path); };
+  }
+
+  path = path_normalize(path);
+
+  try {
+    stat = fs.lstatSync(path);
+  } catch (err) {
+    if ('ENOENT' === err.code) {
+      return;
+    }
+
+    // rethrow
+    throw err;
+  }
+
+  if (stat.isDirectory()) {
+    fs.readdirSync(path).forEach(function (file) {
+      fstools.walkSync(path_join(path, file), match, iterator);
+    });
+    return;
+  }
+
+  if (match(path)) {
+    iterator(path, stat);
+    return;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  callback();
+});
+};
+
+
+
+/**
+ *  FsTools.<span class="apidocCodeKeywordSpan">walkSync</span>(path, pattern, iterator) -&gt; void
+ *  FsTools.walkSync(path, iterator) -&gt; void
+ *
+ *  Synchronous version of [[FsTools.walk]].
+ **/
+fstools.walkSync = function (path, pattern, iterator) {
+var match, stat;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
